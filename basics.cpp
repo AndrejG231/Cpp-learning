@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <fstream>
 
 using namespace std;
 
@@ -19,6 +20,31 @@ float sum(double a, double b)
 {
   return 12.321480;
 }
+
+//OOP
+class Triangle
+{
+public:
+  int a;
+  int b;
+  double c;
+  Triangle(int x, int y)
+  {
+    a = x;
+    b = y;
+    c = hypot(x, y);
+  }
+  int getSumOfSides()
+  {
+    return a + b + c;
+  }
+};
+
+class EvenTriangle : public Triangle
+{
+public:
+  EvenTriangle(int x) : Triangle(x, x) { c = x; }
+};
 
 int main()
 {
@@ -230,6 +256,43 @@ int main()
 
   cout << realSum << endl;
   cout << funcRes << endl;
+
+  Triangle triangleOne(4, 4);
+  cout << "Normal triangle" << endl;
+
+  cout << "A:";
+  cout << triangleOne.a << endl;
+  cout << "B:";
+  cout << triangleOne.b << endl;
+  cout << "C:";
+  cout << triangleOne.c << endl;
+  cout << triangleOne.getSumOfSides() << endl;
+
+  EvenTriangle triangleTwo(5);
+  cout << endl
+       << "Even triangle" << endl
+       << endl;
+
+  cout << "A:";
+  cout << triangleTwo.a << endl;
+  cout << "B:";
+  cout << triangleTwo.b << endl;
+  cout << "C:";
+  cout << triangleTwo.c << endl;
+  cout << triangleTwo.getSumOfSides() << endl;
+
+  //Files
+
+  string myText;
+
+  ifstream readme("README.md");
+
+  while (getline(readme, myText))
+  {
+    cout << myText;
+  }
+
+  readme.close();
 
   return 0;
 }
