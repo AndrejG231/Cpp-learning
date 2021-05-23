@@ -1,2 +1,3 @@
-# CodeBeauty - Cpp full course
- Code base for C++ programming language tutorial.
+# C++
+
+Code base and notes of my C++ learning journey....
